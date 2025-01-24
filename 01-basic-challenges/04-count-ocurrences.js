@@ -3,14 +3,12 @@ function countOcurrences(word, character) {
         throw new Error("Word must be present");
     } else if (character == null) {
         throw new Error("Character must be present");
-    } else if (word == "" || character == "") {
+    } else if (word === "" || character === "") {
         return 0;
     } else {
         const [lowerCasedWord, lowerCasedChar] = [word.toLowerCase(), character.toLowerCase()];
-        return [...lowerCasedWord].filter((letter) => letter == lowerCasedChar).length;
+        return [...lowerCasedWord].filter((letter) => letter === lowerCasedChar).length;
     }
 }
 
 module.exports = countOcurrences;
-
-console.log(countOcurrences("VivaLaVida", "a"));
