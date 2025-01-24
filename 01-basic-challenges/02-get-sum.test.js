@@ -1,4 +1,4 @@
-const getSum = require("./task");
+const getSum = require("./02-get-sum");
 
 test("given2and3_whenGetSum_shouldReturn5", () => {
   // arrange

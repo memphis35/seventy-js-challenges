@@ -1,4 +1,4 @@
-const helloWorld = require("./task");
+const helloWorld = require("./01-hello-world");
 
 test("givenHelloWorldFunction_whenCall_shouldReturnHelloWorld", () => {
   // arrange
