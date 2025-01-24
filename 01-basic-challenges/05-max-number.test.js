@@ -21,7 +21,7 @@ test("givenEmptyArray_whenFindMaxNumber_shouldRaiseAnException", () => {
     const actual = () => findMaxNumber([]);
 
     // assert
-    expect(actual).toThrow("Illegal argument: ");
+    expect(actual).toThrow("Illegal argument: array is empty");
 });
 
 test("givenNullArray_whenFindMaxNumber_shouldRaiseAnException", () => {

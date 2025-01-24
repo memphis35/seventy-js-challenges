@@ -25,5 +25,3 @@ function calculate(first, action, second) {
 }
 
 module.exports = calculate;
-
-console.log(calculate(2, "+", 3));
