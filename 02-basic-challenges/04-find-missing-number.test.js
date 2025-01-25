@@ -39,3 +39,11 @@ test("givenFromZeroToTwelveExceptTwelve_whenFindMissingNumber_shouldReturnTwelve
     // assert
     expect(actual).toBe(12);
 });
+
+test("givenUnorderedFromZeroToElevenExceptEight_whenFindMissingNumber_shouldReturnEight", () => {
+    // act
+    const actual = findMissingNumber([6, 7, 9, 10, 11, 0, 1, 2, 3, 4, 5]);
+
+    // assert
+    expect(actual).toBe(8);
+});
