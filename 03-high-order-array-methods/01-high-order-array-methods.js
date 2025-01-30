@@ -5,4 +5,9 @@ function sumOfEvenSquares(numbers) {
         .reduce((acc, n) => acc + n, 0);
 }
 
-module.exports = { sumOfEvenSquares };
+function calculateTotalSalesWithTax(products, tax) {
+    const total = products.map((product) => product.price * product.quantity).reduce((acc, price) => acc + price, 0);
+    return total * (1 + tax / 100);
+}
+
+module.exports = { sumOfEvenSquares, calculateTotalSalesWithTax };

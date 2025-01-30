@@ -13,3 +13,30 @@ test.each([
     // assert
     expect(actual).toEqual(expected);
 });
+
+test.each([
+    [
+        [
+            { name: "Banana", price: 5, quantity: 8 },
+            { name: "Apple", price: 2, quantity: 15 },
+            { name: "Pear", price: 3, quantity: 3 },
+        ],
+        3,
+        81.37,
+    ],
+    [
+        [
+            { name: "Broccoli", price: 7, quantity: 19 },
+            { name: "Potato", price: 3, quantity: 2 },
+            { name: "Avocado", price: 9, quantity: 7 },
+        ],
+        6,
+        214.12,
+    ],
+])("givenProductsWithDifferentTaxes_whenCalculateTotalSalesWithTax_shouldReturn%d", (products, tax, expected) => {
+    // act
+    const actual = highOrderArrayMethods.calculateTotalSalesWithTax(products, tax);
+
+    // expected
+    expect(actual).toBeCloseTo(expected);
+});
