@@ -46,12 +46,13 @@ function generateHashCode(phrase) {
 }
 
 function isValidIPv4(ipAddress) {
+    const octets = ipAddress.split(".");
     return (
+        octets.length == 4 &&
         ipAddress
             .split(".")
             .map((number) => Number.parseInt(number))
-            .filter((number) => Number.isInteger(number))
-            .filter((number) => number >= 0 && number <= 255).length == 4
+            .every((number) => Number.isInteger(number) && number >= 0 && number <= 255)
     );
 }
 
