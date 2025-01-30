@@ -33,10 +33,23 @@ test.each([
         6,
         214.12,
     ],
-])("givenProductsWithDifferentTaxes_whenCalculateTotalSalesWithTax_shouldReturn%d", (products, tax, expected) => {
+])("givenProducts%s_withTax%d_whenCalculateTotalSalesWithTax_shouldReturn%f", (products, tax, expected) => {
     // act
     const actual = highOrderArrayMethods.calculateTotalSalesWithTax(products, tax);
 
     // expected
     expect(actual).toBeCloseTo(expected);
+});
+
+test.each([
+    ["def abc bcd cde", "def"],
+    ["banana apple orange", "orange"],
+    ["clock picture photograph", "photograph"],
+    ["rock paper scissors", "scissors"],
+])("givenListOf%o_whenHighestScoringWord_shouldReturn_%s", (words, expected) => {
+    // act
+    const actual = highOrderArrayMethods.highestScoringWord(words);
+
+    // assert
+    expect(actual).toEqual(expected);
 });
