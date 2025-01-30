@@ -65,3 +65,19 @@ test.each([
     // assert
     expect(actual).toEqual(expected);
 });
+
+test.each([
+    ["no pain no gain", "#NoPainNoGain"],
+    ["", false],
+    [
+        "It is a very very very very very very very very very very very very very very very very very very very very very very very very very very very  very very very very very very very very long phrase",
+        false,
+    ],
+    ["Let us get the party started", "#LetUsGetThePartyStarted"],
+])("givenPhrase_%s_whenGenerateHashTag_shoudReturn_%s", (phrase, expected) => {
+    // act
+    const actual = highOrderArrayMethods.generateHashCode(phrase);
+
+    // assert
+    expect(actual).toEqual(expected);
+});

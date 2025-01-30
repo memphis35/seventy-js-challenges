@@ -14,7 +14,6 @@ function highestScoringWord(words) {
     return words.split(" ").reduce(
         (maxScoreWord, word) => {
             const wordScore = getWordScore(word);
-            console.log(word, wordScore, maxScoreWord);
             return wordScore > maxScoreWord.score ? { word, score: wordScore } : maxScoreWord;
         },
         { word: "", score: 0 }
@@ -36,4 +35,14 @@ function validAnagrams(firstWord, secondWord) {
     return Object.keys(firstMap).every((letter) => firstMap[letter] === secondMap[letter]);
 }
 
-module.exports = { sumOfEvenSquares, calculateTotalSalesWithTax, highestScoringWord, validAnagrams };
+function generateHashCode(phrase) {
+    const words = phrase.split(" ");
+    const length = words.map((word) => word.length).reduce((acc, length) => acc + length, 0);
+    if (length === 0 || length > 140) {
+        return false;
+    } else {
+        return "#" + words.map((word) => word[0].toUpperCase() + word.substring(1).toLowerCase()).join("");
+    }
+}
+
+module.exports = { sumOfEvenSquares, calculateTotalSalesWithTax, highestScoringWord, validAnagrams, generateHashCode };
