@@ -45,4 +45,21 @@ function generateHashCode(phrase) {
     }
 }
 
-module.exports = { sumOfEvenSquares, calculateTotalSalesWithTax, highestScoringWord, validAnagrams, generateHashCode };
+function isValidIPv4(ipAddress) {
+    return (
+        ipAddress
+            .split(".")
+            .map((number) => Number.parseInt(number))
+            .filter((number) => Number.isInteger(number))
+            .filter((number) => number >= 0 && number <= 255).length == 4
+    );
+}
+
+module.exports = {
+    sumOfEvenSquares,
+    calculateTotalSalesWithTax,
+    highestScoringWord,
+    validAnagrams,
+    generateHashCode,
+    isValidIPv4,
+};

@@ -81,3 +81,18 @@ test.each([
     // assert
     expect(actual).toEqual(expected);
 });
+
+test.each([
+    ["1.2.3.4", true],
+    ["1.2.3", false],
+    ["0.0.0.0", true],
+    ["255.255.255.255", true],
+    ["0.1.256.2", false],
+    ["1.2.b.4", false],
+])("givenIpAddress_%s_whenisValidIpAddress_shouldReturn_%s", (ipAddress, expected) => {
+    // act
+    const actual = highOrderArrayMethods.isValidIPv4(ipAddress);
+
+    // assert
+    expect(actual).toEqual(expected);
+});
