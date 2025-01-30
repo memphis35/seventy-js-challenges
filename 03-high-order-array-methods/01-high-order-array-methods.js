@@ -26,4 +26,14 @@ function getWordScore(word) {
     return [...word].map((letter) => alphabet.indexOf(letter)).reduce((acc, score) => acc + score, 0);
 }
 
-module.exports = { sumOfEvenSquares, calculateTotalSalesWithTax, highestScoringWord };
+function validAnagrams(firstWord, secondWord) {
+    // const firstOrdered = [...firstWord].sort().join("");
+    // const secondOrdered = [...secondWord].sort().join("");
+    // return firstOrdered === secondOrdered;
+    const [firstMap, secondMap] = [{}, {}];
+    [...firstWord].forEach((letter) => (firstMap[letter] = (firstMap[letter] || 0) + 1));
+    [...secondWord].forEach((letter) => (secondMap[letter] = (secondMap[letter] || 0) + 1));
+    return Object.keys(firstMap).every((letter) => firstMap[letter] === secondMap[letter]);
+}
+
+module.exports = { sumOfEvenSquares, calculateTotalSalesWithTax, highestScoringWord, validAnagrams };

@@ -53,3 +53,15 @@ test.each([
     // assert
     expect(actual).toEqual(expected);
 });
+
+test.each([
+    ["silent", "listen", true],
+    ["apple", "orange", false],
+    ["cantina", "atincan", true],
+])("givenWords_%s_And_%s_whenValidAnagrams_shouldReturn_%s", (firstWord, secondWord, expected) => {
+    // act
+    const actual = highOrderArrayMethods.validAnagrams(firstWord, secondWord);
+
+    // assert
+    expect(actual).toEqual(expected);
+});
