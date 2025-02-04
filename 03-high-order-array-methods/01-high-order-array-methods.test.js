@@ -96,3 +96,26 @@ test.each([
     // assert
     expect(actual).toEqual(expected);
 });
+
+test("mileage", () => {
+    // arrange
+    const cars = [
+        { make: "Toyota", model: "Camry", year: 2020, mileage: 30800 },
+        { make: "Honda", model: "Civic", year: 2019, mileage: 32000 },
+        { make: "Chevrolet", model: "Corvette", year: 2021, mileage: 17500 },
+        { make: "Audi", model: "TT", year: 2020, mileage: 13000 },
+        { make: "Tesla", model: "Model 3", year: 2018, mileage: 50000 },
+    ];
+    const expected = {
+        average: 28660,
+        highest: { make: "Tesla", model: "Model 3", year: 2018, mileage: 50000 },
+        lowest: { make: "Audi", model: "TT", year: 2020, mileage: 13000 },
+        total: 143300,
+    };
+
+    // act
+    const actual = highOrderArrayMethods.analyzeCarMileage(cars);
+
+    // assert
+    expect(actual).toEqual(expected);
+});

@@ -56,6 +56,19 @@ function isValidIPv4(ipAddress) {
     );
 }
 
+function analyzeCarMileage(cars) {
+    const accumulator = { total: 0, highest: cars[0], lowest: cars[0] };
+    const result = cars.reduce((acc, car) => {
+        const temp = { ...acc };
+        temp.total += car.mileage;
+        temp.highest = car.mileage > acc.highest.mileage ? car : acc.highest;
+        temp.lowest = car.mileage < acc.highest.mileage ? car : acc.lowest;
+        return temp;
+    }, accumulator);
+    result["average"] = result.total / cars.length;
+    return result;
+}
+
 module.exports = {
     sumOfEvenSquares,
     calculateTotalSalesWithTax,
@@ -63,4 +76,5 @@ module.exports = {
     validAnagrams,
     generateHashCode,
     isValidIPv4,
+    analyzeCarMileage,
 };
