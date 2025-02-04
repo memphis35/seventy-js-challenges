@@ -69,6 +69,22 @@ function analyzeCarMileage(cars) {
     return result;
 }
 
+function validatePassword(password) {
+    if (password.length < 8) {
+        throw new Error(`Password length is less than 8`);
+    }
+    const containsOnlyPermittedSymbols = password.match(/^[\w]+$/);
+    if (!containsOnlyPermittedSymbols) {
+        const prohibitedSymbols = [...password].filter((letter) => letter.match(/[^\w]/)).join("");
+        throw new Error(`Password contains the next prohibited symbols: ${prohibitedSymbols}`);
+    }
+    const passwordArr = [...password];
+    const hasLowerCase = passwordArr.some((letter) => letter === letter.toLowerCase());
+    const hasUpperCase = passwordArr.some((letter) => letter === letter.toUpperCase());
+    const hasDigit = passwordArr.some((letter) => Number.isInteger(Number.parseInt(letter)));
+    return hasLowerCase && hasUpperCase && hasDigit;
+}
+
 module.exports = {
     sumOfEvenSquares,
     calculateTotalSalesWithTax,
@@ -77,4 +93,5 @@ module.exports = {
     generateHashCode,
     isValidIPv4,
     analyzeCarMileage,
+    validatePassword,
 };

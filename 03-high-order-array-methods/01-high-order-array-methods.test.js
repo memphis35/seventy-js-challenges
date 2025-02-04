@@ -97,7 +97,7 @@ test.each([
     expect(actual).toEqual(expected);
 });
 
-test("mileage", () => {
+test("givenCars_whenAnalyseCarMileage_shouldReturnResult", () => {
     // arrange
     const cars = [
         { make: "Toyota", model: "Camry", year: 2020, mileage: 30800 },
@@ -106,6 +106,7 @@ test("mileage", () => {
         { make: "Audi", model: "TT", year: 2020, mileage: 13000 },
         { make: "Tesla", model: "Model 3", year: 2018, mileage: 50000 },
     ];
+
     const expected = {
         average: 28660,
         highest: { make: "Tesla", model: "Model 3", year: 2018, mileage: 50000 },
@@ -118,4 +119,27 @@ test("mileage", () => {
 
     // assert
     expect(actual).toEqual(expected);
+});
+
+test.each([
+    ["p@ssWord!", "Password contains the next prohibited symbols: @!"],
+    ["pAssw0r", "Password length is less than 8"],
+])("givenWrongPassword_whenValidatePassword_shouldThrowError", (password, expected) => {
+    // act
+    const execution = () => highOrderArrayMethods.validatePassword(password);
+
+    // assert
+    expect(execution).toThrowError(expected);
+});
+
+test.each([
+    ["password", false],
+    ["pAssword", false],
+    ["pAssw0rd", true],
+])("givenPassword_%s_whenValidatePassword_shouldReturn_%s", (password, expected) => {
+    // act
+    const execution = highOrderArrayMethods.validatePassword(password);
+
+    // assert
+    expect(execution).toEqual(expected);
 });
