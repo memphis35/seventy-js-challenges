@@ -64,3 +64,15 @@ test.each([
     // assert
     expect(actual).toBe(expected);
 });
+
+test.each([
+    [[2, 1, 4], 7],
+    [[4, 7, 5, 2], 18],
+    [[17, 54, 21], 92],
+])("givenNumbers_%s_whenPower_shouldReturn_%i", (numbers, expected) => {
+    // act
+    const actual = recursion.sumOfNumbers(numbers);
+
+    // assert
+    expect(actual).toBe(expected);
+});

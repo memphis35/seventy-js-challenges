@@ -21,7 +21,12 @@ function factorial(num) {
 }
 
 function power(base, exp) {
-    return exp === 0 ? 1 : base * power(base, exp - 1);
+    return !exp ? 1 : base * power(base, exp - 1);
 }
 
-module.exports = { reverseString, fibonacciSequence, factorial, power };
+function sumOfNumbers(numbers) {
+    console.log(numbers.slice(0, -1));
+    return !numbers.length ? 0 : numbers[0] + sumOfNumbers(numbers.slice(1));
+}
+
+module.exports = { reverseString, fibonacciSequence, factorial, power, sumOfNumbers };
