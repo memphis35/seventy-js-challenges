@@ -85,6 +85,21 @@ function validatePassword(password) {
     return hasLowerCase && hasUpperCase && hasDigit;
 }
 
+function findMissingLetter(letters) {
+    const sortedLetters = letters.sort();
+    let tempLetter = sortedLetters[0].codePointAt(0);
+    const code = sortedLetters
+        .map((letter) => letter.codePointAt(0))
+        .find((currentLetter) => {
+            if (currentLetter - tempLetter == 2) {
+                return true;
+            }
+            tempLetter = currentLetter;
+            return false;
+        });
+    return String.fromCharCode(code - 1 || tempLetter + 1);
+}
+
 module.exports = {
     sumOfEvenSquares,
     calculateTotalSalesWithTax,
@@ -94,4 +109,5 @@ module.exports = {
     isValidIPv4,
     analyzeCarMileage,
     validatePassword,
+    findMissingLetter,
 };

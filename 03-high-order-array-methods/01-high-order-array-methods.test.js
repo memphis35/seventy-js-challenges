@@ -143,3 +143,15 @@ test.each([
     // assert
     expect(execution).toEqual(expected);
 });
+
+test.each([
+    [["A", "G", "B", "D", "F", "E"], "C"],
+    [["z", "w", "v", "x", "u"], "y"],
+    [["F", "H", "G", "J", "I"], "K"],
+])("given_%s_whenFindMissingLetter_shouldReturn_%s", (letters, expected) => {
+    // act
+    const actual = highOrderArrayMethods.findMissingLetter(letters);
+
+    //assert
+    expect(actual).toEqual(expected);
+});
