@@ -20,4 +20,8 @@ function factorial(num) {
     return !num ? 1 : num * factorial(num - 1);
 }
 
-module.exports = { reverseString, fibonacciSequence, factorial };
+function power(base, exp) {
+    return exp === 0 ? 1 : base * power(base, exp - 1);
+}
+
+module.exports = { reverseString, fibonacciSequence, factorial, power };

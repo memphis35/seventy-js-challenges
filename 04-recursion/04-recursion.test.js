@@ -49,3 +49,18 @@ test.each([
     // assert
     expect(actual).toBe(expected);
 });
+
+test.each([
+    [2, 2, 4],
+    [3, 3, 27],
+    [4, 4, 256],
+    [192, 0, 1],
+    [42, 1, 42],
+    [15386, 3, 3642312332456],
+])("givenNumber_%i_withExp_%i_whenPower_shouldReturn_%i", (base, exponent, expected) => {
+    // act
+    const actual = recursion.power(base, exponent);
+
+    // assert
+    expect(actual).toBe(expected);
+});
