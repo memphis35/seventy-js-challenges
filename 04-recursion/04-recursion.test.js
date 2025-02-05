@@ -11,3 +11,27 @@ test.each([
     // assert
     expect(actual).toBe(expected);
 });
+
+test.each([
+    [1, 0],
+    [2, 1],
+    [3, 1],
+    [4, 2],
+    [6, 5],
+    [10, 34],
+    [19, 2584],
+])("given_%i_whenFibonacciSequence_shouldReturn_%i", (nthElement, expected) => {
+    // act
+    const actual = recursion.fibonacciSequence(nthElement);
+
+    // assert
+    expect(actual).toBe(expected);
+});
+
+test("givenNthElementZero_whenFibonacciSequence_shouldThrowError", () => {
+    // act
+    const execution = () => recursion.fibonacciSequence(0);
+
+    // assert
+    expect(execution).toThrowError("Nth element must be more than 0");
+});
