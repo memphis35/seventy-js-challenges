@@ -25,7 +25,6 @@ function power(base, exp) {
 }
 
 function sumOfNumbers(numbers) {
-    console.log(numbers.slice(0, -1));
     return !numbers.length ? 0 : numbers[0] + sumOfNumbers(numbers.slice(1));
 }
 
@@ -43,6 +42,32 @@ function numberRange(start, end) {
     return result;
 }
 
-console.log(numberRange(1, 5));
+// one line solution, one level of subarrays
+// function flattenArrays(arr) {
+//     return arr.length === 1 ? arr[0] : [...arr[0], ...flattenArrays(arr.slice(1))];
+// }
 
-module.exports = { reverseString, fibonacciSequence, factorial, power, sumOfNumbers, numberRange };
+// multi level of subarrays
+function flattenArrays(arr) {
+    const result = [];
+    arr.forEach((el) => {
+        if (Array.isArray(el)) {
+            const subArray = flattenArrays(el);
+            subArray.forEach((element) => {
+                result.push(element);
+            });
+        } else {
+            result.push(el);
+        }
+    });
+    return result;
+}
+
+console.log(
+    flattenArrays([
+        [1, 2, 3],
+        ["a", "b", "c"],
+        [{}, true, false],
+    ])
+);
+module.exports = { reverseString, fibonacciSequence, factorial, power, sumOfNumbers, numberRange, flattenArrays };

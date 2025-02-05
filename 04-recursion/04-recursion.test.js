@@ -89,3 +89,35 @@ test.each([
     // assert
     expect(actual).toEqual(expected);
 });
+
+test("givenArrayOfArrays_whenFlattenArray_shouldReturnFlattenArray", () => {
+    // arrange
+    const arr = [
+        [3, 1, 2],
+        [
+            ["Apple", "Banana"],
+            ["Cherry", "Raspberry"],
+        ],
+        [true, false, [false]],
+        [{ name: "John Doe", age: 19 }],
+    ];
+    const expected = [
+        3,
+        1,
+        2,
+        "Apple",
+        "Banana",
+        "Cherry",
+        "Raspberry",
+        true,
+        false,
+        false,
+        { name: "John Doe", age: 19 },
+    ];
+
+    // act
+    const actual = recursion.flattenArrays(arr);
+
+    // assert
+    expect(actual).toEqual(expected);
+});
