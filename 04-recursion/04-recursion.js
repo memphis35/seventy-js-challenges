@@ -29,4 +29,20 @@ function sumOfNumbers(numbers) {
     return !numbers.length ? 0 : numbers[0] + sumOfNumbers(numbers.slice(1));
 }
 
-module.exports = { reverseString, fibonacciSequence, factorial, power, sumOfNumbers };
+// one line solution, requires a lot of memory
+// function numberRange(start, end) {
+//     return start === end ? [end] : [...numberRange(start, end - 1), end];
+// }
+
+function numberRange(start, end) {
+    if (start === end) {
+        return [end];
+    }
+    const result = numberRange(start, end - 1);
+    result.push(end);
+    return result;
+}
+
+console.log(numberRange(1, 5));
+
+module.exports = { reverseString, fibonacciSequence, factorial, power, sumOfNumbers, numberRange };
