@@ -35,3 +35,17 @@ test("givenNthElementZero_whenFibonacciSequence_shouldThrowError", () => {
     // assert
     expect(execution).toThrowError("Nth element must be more than 0");
 });
+
+test.each([
+    [1, 1],
+    [2, 2],
+    [3, 6],
+    [4, 24],
+    [5, 120],
+])("givenNumber_%i_whenFactorial_shouldReturn_%i", (number, expected) => {
+    // act
+    const actual = recursion.factorial(number);
+
+    // assert
+    expect(actual).toBe(expected);
+});

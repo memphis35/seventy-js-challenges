@@ -16,4 +16,8 @@ function fibonacciSequence(nthElement) {
     }
 }
 
-module.exports = { reverseString, fibonacciSequence };
+function factorial(num) {
+    return !num ? 1 : num * factorial(num - 1);
+}
+
+module.exports = { reverseString, fibonacciSequence, factorial };
