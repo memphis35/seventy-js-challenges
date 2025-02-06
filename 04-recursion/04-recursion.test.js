@@ -121,3 +121,61 @@ test("givenArrayOfArrays_whenFlattenArray_shouldReturnFlattenArray", () => {
     // assert
     expect(actual).toEqual(expected);
 });
+
+test("givenWord_%s_whenPermutate_shouldReturnPermutations", () => {
+    // arrange
+    const expected = ["abc", "acb", "bac", "bca", "cab", "cba"];
+
+    // act
+    const actual = recursion.permutations("abc");
+
+    // assert
+    expect(actual).toEqual(expected);
+});
+
+test("givenAbc_%s_whenPermutate_shouldReturnPermutations", () => {
+    // arrange
+    const expected = ["abc", "acb", "bac", "bca", "cab", "cba"];
+
+    // act
+    const actual = recursion.permutations("abc");
+
+    // assert
+    expect(actual).toEqual(expected);
+});
+
+test("givenWord_%s_whenPermutate_shouldReturnPermutations", () => {
+    // arrange
+    const expected = [
+        "word",
+        "wodr",
+        "wrod",
+        "wrdo",
+        "wdor",
+        "wdro",
+        "owrd",
+        "owdr",
+        "orwd",
+        "ordw",
+        "odwr",
+        "odrw",
+        "rwod",
+        "rwdo",
+        "rowd",
+        "rodw",
+        "rdwo",
+        "rdow",
+        "dwor",
+        "dwro",
+        "dowr",
+        "dorw",
+        "drwo",
+        "drow",
+    ];
+
+    // act
+    const actual = recursion.permutations("word");
+
+    // assert
+    expect(actual).toEqual(expected);
+});

@@ -63,11 +63,28 @@ function flattenArrays(arr) {
     return result;
 }
 
-console.log(
-    flattenArrays([
-        [1, 2, 3],
-        ["a", "b", "c"],
-        [{}, true, false],
-    ])
-);
-module.exports = { reverseString, fibonacciSequence, factorial, power, sumOfNumbers, numberRange, flattenArrays };
+function permutations(word) {
+    if (word.length === 1) {
+        return [word];
+    }
+    const result = [];
+    for (let index = 0; index < word.length; index++) {
+        const slicedWord = word.slice(0, index) + (word.slice(index + 1) || "");
+        permutations(slicedWord)
+            .map((el) => word[index] + el)
+            .forEach((el) => result.push(el));
+    }
+    return result;
+}
+
+console.log(permutations("word"));
+module.exports = {
+    reverseString,
+    fibonacciSequence,
+    factorial,
+    power,
+    sumOfNumbers,
+    numberRange,
+    flattenArrays,
+    permutations,
+};
